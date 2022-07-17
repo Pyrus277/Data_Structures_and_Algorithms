@@ -7,10 +7,11 @@ Notes taken as I read thru the book Grokking Algorithms by Aditya Y. Bhargava
 - It's not enough to know how long an algorithm takes to run. You need to know how the running time increases as the list
 size increases! 
 - For example, simple search entails linear time, but binary search entails log time.  
-- Big O doesn't tell you the speed in seconds-- it lets you compate the number of operations. It tells you
+- Big O doesn't tell you the speed in seconds-- it lets you compare the number of operations. It tells you
 how fast the algorithm grows.  
 - Big O always assumes the worst case scenario, the maximum number of operations it would take to finish.  
 - Logs are always expressed in base 2 and n is the number of operations.  
+- Constants are ignored-- so for a sorting algo O(n * 1/2 * n), it's just O(n**2)
   
 >&nbsp;&nbsp; Common Big O run times:  
 >&nbsp;&nbsp; O(log n)-- log time, ex. Binary Search  
@@ -55,4 +56,59 @@ There is no known way to solve this faster.
 Speed(n!) - Factorial time
 This becomes exceedingly slow as the list grows. For 15 cities, it would take 1.3 
 TRILLION operations. 
+
+## Selection Sort  
+Example - Organizing a list of artists by number of plays.
+One approach is to look at all the artists, select the one with the highest count, append, and do it again.  
+Speed is O(n * 1/2 * n), but since big O ignores constants, speed is just listed as O(n^2)  
+  
+Code example - sort an array from smallest to largest:
+
+```python
+# Write a function to find the smallest element in the array:
+
+def findSmallest(arr):
+    smallest = arr[0]
+    smallest_index = 0
+    for i in range(1, len(arr)):
+        if arr[i] < smallest:
+            smallest = arr[i]
+            smallest_index = i
+    return smallest_index
+
+# Now use the function above to write selection sort
+
+def selectionSort(arr):
+    newArr = []
+    for i in range(len(arr)):
+        smallest = findSmallest(arr)
+        newArr.append(arr.pop(smallest))
+    return newArr
+
+print(selectionSort([5,3,6,2,10]))
+```
+  
+## Recursion
+Say we're looking for a key and we know it's in this box.  
+But among the items in this box are other boxes, and each of those may contain further boxes still.  
+A recursive algorithm is one approach to finding this key. 
+**This is a kind of function that refers to itself:**  
+We're going to LOOK FOR THE KEY.  
+For each item in the box, if it's a box, we're gonna open it and LOOK FOR THE KEY (this is the recusion)  
+If the item is the key, we can stop.  
+To put this in code:
+```python
+def look_for_key(box): # box == a list
+    for item in box:
+        if item == box: # Recursive case
+            look_for_key(item) 
+        if item == "key": # Base base
+            print("found it!"
+            break
+````
+As seen above, every recursive function has a **base case** and a **recursive case**.
+Gotta make sure you program the base case correctly, or you'll have an infinite loop.
+
+
+
 
