@@ -57,7 +57,7 @@ def is_anagram2(s: str, t: str) -> bool:
     else:
         return False
 
-# A very pythonic solution:
+# A very pythonic solution!:
 def is_anagram3(s: str, t: str) -> bool:
     return Counter(s) == Counter(t)
 
