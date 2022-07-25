@@ -108,7 +108,8 @@ def look_for_key(box): # box == a list
 ````
 As seen above, every recursive function has a **base case** and a **recursive case**.
 Gotta make sure you program the base case correctly, or you'll have an infinite loop.
-
+  
+Using the call stack by way of recursion can be convenient, but it can take up a lot of memory. Consider writing a loop instead. 
 
 
 
