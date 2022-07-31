@@ -112,4 +112,36 @@ Gotta make sure you program the base case correctly, or you'll have an infinite 
 Using the call stack by way of recursion can be convenient, but it can take up a lot of memory. Consider writing a loop instead. 
 
 
+## Quicksort
+Much faster than Selection Sort and often used irl.   
+This algorithm makes use of recursion. The base case is a list with a length of 2 items or less-- these lists obbiously don't need sorting.  
+Our recursive case takes any list with a length of 2 or greater and from that selects a *pivot*  
+We then look at the other numbers and determine if they are greater than or less than the pivot.    
+This process is called *partitioning* and it gives us three items:  
+-The pivot  
+-A list of items that are all less than or equal to the pivot (sub_a)  
+-A list of items that are all greater than the pivot (sub_b)  
+We then return: sub_a + pivot + sub_b.    
+If either sub_a or sub_b is longer than 3 items, we recursively call quicksort on each. 
+```python
+def quicksort(lst):
+    if len(lst) < 2:
+        return lst 
+    else:
+        pivot = lst[0]
+        sub_a = [i for i in lst[1:] if i <= pivot]
+        sub_b = [i for i in lst[1:] if i > pivot]
+                
+        return quicksort(sub_a) + [pivot] + quicksort(sub_b)
+```
+Quicksort is unique in that its Big O depends on the constant.  
+When we make a Big O notation like O(n), we really mean c * n, c being the length of time per operation and the constant.  
+However, we usually omit the constant because it doesnt matter. When comparing, say, Simple Search O(n) to Binary Search O(log(n)),
+even if the constant for simple search is a fraction of that of binary search, binary search is still going to be much, much faster.  
+But in the case of Quicksort, the constant *does* matter, and it depends on the *pivot* we choose.  
+In the **worse case**, Quicksort will take O(n^2) time, but in the **average case** it will take O(n log n) time. 
+
+####Average case vs Worst case
+
+
 
