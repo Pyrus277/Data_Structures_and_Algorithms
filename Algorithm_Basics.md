@@ -114,7 +114,7 @@ Using the call stack by way of recursion can be convenient, but it can take up a
 
 ## Quicksort
 Much faster than Selection Sort and often used irl.   
-This algorithm makes use of recursion. The base case is a list with a length of 2 items or less-- these lists obbiously don't need sorting.  
+This algorithm makes use of recursion. The base case is a list with a length of 2 items or less-- these lists obviously don't need sorting.  
 Our recursive case takes any list with a length of 2 or greater and from that selects a *pivot*  
 We then look at the other numbers and determine if they are greater than or less than the pivot.    
 This process is called *partitioning* and it gives us three items:  
