@@ -141,7 +141,26 @@ even if the constant for simple search is a fraction of that of binary search, b
 But in the case of Quicksort, the constant *does* matter, and it depends on the *pivot* we choose.  
 In the **worse case**, Quicksort will take O(n^2) time, but in the **average case** it will take O(n log n) time. 
 
+Quicksort vs Merge sort
+Merge sort has time O(n log n), and Quicksort has the same in the *average case*  
+Quicksort has a lower constant than merge sort.  
+It's also going to hit the average case way more than the worst case.  
+So quicksort is faster. 
+
 ####Average case vs Worst case
+Quicksort **best case**--  
+The height of the call stack is O(log n)  
+Each level takes O(n) time, so..  
+O(n) * O(log n) = O(n log n)  
+  
+Quicksort **worst case**--  
+There are O(n) levels, each level takes O(n) time, so..  
+O(n) * O(n) = O(n^2)  
+
+Best Case *is* the average case, IF you always choose a random element as the pivot.
+
+
+
 
 
 
